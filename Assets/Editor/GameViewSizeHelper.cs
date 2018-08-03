@@ -1,4 +1,5 @@
 ﻿//from https://github.com/anchan828/unity-GameViewSizeHelper
+//partial changed
 
 using System;
 using System.Collections.Generic;
@@ -135,6 +136,20 @@ namespace Kyusyukeigo.Helper
             }
         }
 
+        public static GameViewSize[] GetAllCustomGameViewSize(GameViewSizeGroupType groupType)
+        {
+            object group = GetGroup(groupType, instance);
+            int totalCount = GetTotalCount(group);
+            int gameViewSizeLength = GetCustomCount(group);
+            List<GameViewSize> allCustomGameViewSize = new List<GameViewSize>();
+            for (int i = totalCount - gameViewSizeLength; i < totalCount; i++)
+            {
+                object gameViewSize = GetGameViewSize(group, i);
+                allCustomGameViewSize.Add(Convert(gameViewSize));
+            }
+            return allCustomGameViewSize.ToArray();
+        }
+
         #endregion public Method
 
         #region private Method
@@ -177,6 +192,15 @@ namespace Kyusyukeigo.Helper
             GameViewSizeType b_sizeType = (GameViewSizeType)Enum.Parse(typeof(GameViewSizeType), GetGameSizeProperty(b, "sizeType").ToString());
 
             return a.type == b_sizeType && a.width == b_width && a.height == b_height && a.baseText == b_baseText;
+        }
+
+        private static GameViewSize Convert(object instance)
+        {
+            int width = (int)GetGameSizeProperty(instance, "width");
+            int height = (int)GetGameSizeProperty(instance, "height");
+            string baseText = (string)GetGameSizeProperty(instance, "baseText");
+            GameViewSizeType type = (GameViewSizeType)Enum.Parse(typeof(GameViewSizeType), GetGameSizeProperty(instance, "sizeType").ToString());
+            return new GameViewSize { type = type, width = width, height = height, baseText = baseText };
         }
 
         static object GetGameSizeProperty(object instance, string name)
