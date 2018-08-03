@@ -29,6 +29,9 @@ It is troublesome to register, delete, or change GameViewSize using the default 
 ## Update Preset
 Please rewrite "GameViewSizePreset.cs" or Make a issue [GameViewSizeSettings issue](https://github.com/Syy12345-Unity/GameViewSizeSettings/issues)
 
+## Use Library
+* [unity-GameViewSizeHelper](https://github.com/anchan828/unity-GameViewSizeHelper)
+
 ## Licence
 
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
