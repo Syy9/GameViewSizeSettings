@@ -16,6 +16,8 @@ It is troublesome to register, delete, or change GameViewSize using the default 
 * Change GameViewSize
 
 ## Usage
+import GameViewSizeSettings.unitypackage
+
 #### Open EditorWindow
 1. MenuItem "Window/GameViewSize Settings"
 2. Switch Tab
