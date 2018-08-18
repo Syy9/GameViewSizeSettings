@@ -36,8 +36,6 @@ sysinfo.txt
 
 # Builds
 *.apk
-*.unitypackage
-
 
 ### https://raw.github.com/github/gitignore/300be202df4d2bc4824249407fb617df64750627/Global/macOS.gitignore
 
@@ -47,7 +45,8 @@ sysinfo.txt
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
